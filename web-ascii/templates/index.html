@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASCII Art Generator</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ASCII Art Web</h1>
+            <p>Convert your text into stunning ASCII banners.</p>
+        </header>
+
+        <main>
+            <form action="/ascii-art" method="POST" class="art-form">
+                <div class="form-group">
+                    <label for="text">Enter Text:</label>
+                    <textarea id="text" name="text" rows="4" placeholder="Type something cool here..." required autofocus></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Select Banner Style:</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="banner" value="standard" checked>
+                            <span class="custom-radio"></span>
+                            Standard
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="banner" value="shadow">
+                            <span class="custom-radio"></span>
+                            Shadow
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="banner" value="thinkertoy">
+                            <span class="custom-radio"></span>
+                            Thinkertoy
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Generate Art</button>
+            </form>
+
+            {{if .}}
+            <div class="result-section">
+                <h2>Result:</h2>
+                <div class="output-container">
+                    <pre>{{.}}</pre>
+                </div>
+            </div>
+            {{end}}
+        </main>
+    </div>
+</body>
+</html>
